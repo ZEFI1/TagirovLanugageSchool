@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEditPage.xaml.cs">
+      <DependentUpon>AddEditPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -138,6 +142,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TagirovBD.edmx</DependentUpon>
     </Compile>
+    <Page Include="AddEditPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Clients.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -267,6 +275,7 @@
     <Resource Include="Клиенты\m97.jpg" />
     <Resource Include="Клиенты\m98.jpg" />
     <Resource Include="Клиенты\m99.jpg" />
+    <Resource Include="images\picture.png" />
     <Content Include="TagirovBD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TagirovBD.Context.cs</LastGenOutput>
@@ -281,15 +290,18 @@
   <ItemGroup>
     <Resource Include="assets\school_logo.ico" />
     <Resource Include="assets\school_logo.png" />
-    <Content Include="Клиенты\README.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="images\*.*" Exclude="images\README.txt;images\placeholder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+  <ItemGroup>
+  <Content Include="Клиенты\**\*.*">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Include="images\**\*.*">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
 </Project>

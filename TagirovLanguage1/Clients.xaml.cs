@@ -78,7 +78,7 @@ namespace TagirovLanguage1
                 switch (selectedSort)
                 {
                     case "LastNameAsc":
-                        currentClients = currentClients.OrderBy(x => x.LastName).ThenBy(x => x.FirstName).ToList();
+                        currentClients = currentClients.OrderBy(x => x.FirstName).ThenBy(x => x.LastName).ToList();
                         break;
                     case "LastVisitDesc":
                         currentClients = currentClients.OrderByDescending(x => x.LastVisitDate).ToList();
@@ -162,7 +162,7 @@ namespace TagirovLanguage1
             ClientsListView.ItemsSource = CurrentPageList;
 
             TBCount.Text = CurrentPageList.Count.ToString();
-            TBAllRecords.Text = " из " + CountRecords.ToString();
+            TBAllRecords.Text = "из " + CountRecords.ToString();
 
             LeftDirButton.Visibility = PageSize == 0 ? Visibility.Collapsed : Visibility.Visible;
             RightDirButton.Visibility = PageSize == 0 ? Visibility.Collapsed : Visibility.Visible;
@@ -208,6 +208,17 @@ namespace TagirovLanguage1
         private void RightDirButton_Click(object sender, RoutedEventArgs e)
         {
             ChangePage(2, null);
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage());
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Client currentClient = (sender as Button).Tag as Client;
+            Manager.MainFrame.Navigate(new AddEditPage(currentClient));
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)

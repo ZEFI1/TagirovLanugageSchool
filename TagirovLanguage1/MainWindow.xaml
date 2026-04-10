@@ -40,7 +40,7 @@
                         Click="BtnBack_Click"
                         Visibility="Hidden"
                         Background="#04A0FF"
-                        Foreground="White"/>
+                        Foreground="Black"/>
             </Grid>
         </Border>
 

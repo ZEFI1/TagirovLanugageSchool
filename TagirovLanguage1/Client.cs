@@ -92,7 +92,17 @@ namespace TagirovLanguage1
         {
             get
             {
-                return PhotoPath;
+                string normalizedPhotoPath = (PhotoPath ?? "").Trim().Replace("/", "\\");
+                string fileName = string.IsNullOrWhiteSpace(normalizedPhotoPath)
+                    ? "picture.png"
+                    : normalizedPhotoPath.Split('\\').Last();
+
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Клиенты", fileName);
+
+                if (!File.Exists(path))
+                    path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "picture.png");
+
+                return path;
             }
         }
 
